@@ -7,7 +7,8 @@ const Feedback = ({setToogle,handleNavItem}) => {
   const [{message},dispatch]=useStateValue();
     const fileInputRef = useRef(null);
 
-    const handleLabelClick = () => {
+    const handleLabelClick = (e) => {
+        e.preventDefault();
         fileInputRef.current.click();
       };
     
@@ -36,7 +37,7 @@ const Feedback = ({setToogle,handleNavItem}) => {
 
                 <div className='flex w-fit overflow-hidden bg-[#C7C7C7] text-base p-2 text-black rounded-sm  my-5 mx-5'>
                     <img src={vector} />
-                    <label htmlFor="fileInput" id="fileInputLabel" onClick={handleLabelClick}>
+                    <label htmlFor="fileInput" id="fileInputLabel" onClick={(e)=>handleLabelClick(e)}>
                         <button className='overflow-hidden px-2'>Attach</button>
                     </label>
                 </div>
