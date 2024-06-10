@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import leanFab from "../../assets/leanFab.png";
 import FirstFab from './FirstFab';
 import SecFab from './SecFab';
@@ -7,7 +7,12 @@ import Suggestion from "../FabSuggestion/Suggestion";
 import Feedback from "../FabFeedback/Feedback";
 import Report from "../FabReport/Report";
 import Contact from "../FabContact/contact";
+
+import { useStateValue } from '../../stateProvider';
+import Notification from '../Notofication/Notification';
 const Fabbottom2 = () => {
+    const [{message},dispatch]=useStateValue();
+
     const [toogle,setToogle]=useState(true);
     const [toogle2,setToogle2]=useState(false);
 
@@ -20,17 +25,26 @@ const Fabbottom2 = () => {
     const setComponent = () => {
         switch (renderComponent) {
           case "suggestion":
-            return <Suggestion />;
+            return <Suggestion setToogle={setToogle} handleNavItem={handleNavItem} />;
           case "feedback":
-            return <Feedback />;
+            return <Feedback setToogle={setToogle} handleNavItem={handleNavItem} />;
           case "contact":
-            return <Contact />;
+            return <Contact setToogle={setToogle} handleNavItem={handleNavItem} />;
           case "report":
-            return <Report />;
+            return <Report setToogle={setToogle} handleNavItem={handleNavItem} />;
         }
     };
+    const [a,setA]=useState("")
 
-    // toogle==false->close fab
+    useEffect(()=>{
+      setTimeout(()=>{
+        setA(message);
+        dispatch({
+          type:"SET_MESSAGE",
+          message:""
+        })
+      },5000)
+    },[message])
   return (
     <div>
       <div>
@@ -51,6 +65,7 @@ const Fabbottom2 = () => {
         </div>
       </div>
       <div className="mt-2 w-full ml-1 p-2">{setComponent()}</div>
+      {a!==""&& <Notification message={a}/>}
     </div>
   )
 }

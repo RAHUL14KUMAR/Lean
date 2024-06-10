@@ -3,10 +3,6 @@ import fabControl from "../../assets/fabControl.png";
 import fabFeedback from "../../assets/fabFeedback.png";
 import fabReport from "../../assets/fabReport.png";
 import fabSuggestion from "../../assets/fabSuggestion.png";
-import Suggestion from "../FabSuggestion/Suggestion";
-import Feedback from "../FabFeedback/Feedback";
-import Report from "../FabReport/Report";
-import Contact from "../FabContact/contact";
 
 import fabClose from "../../assets/fabClose.png";
 

@@ -1,8 +1,10 @@
 import React from 'react'
 import { useRef } from 'react'
 import vector from '../../assets/Vector (2).png'
+import { useStateValue } from '../../stateProvider'
 
-const Feedback = () => {
+const Feedback = ({setToogle,handleNavItem}) => {
+  const [{message},dispatch]=useStateValue();
     const fileInputRef = useRef(null);
 
     const handleLabelClick = () => {
@@ -13,6 +15,16 @@ const Feedback = () => {
         const file = fileInputRef.current.files[0];
         console.log('Selected file:', file);
       };
+
+      const submit=(e)=>{
+        e.preventDefault();
+        dispatch({
+          type:"SET_MESSAGE",
+          message:"Thanks for your valuable feedback!"
+        })
+        setToogle(true);
+        handleNavItem("");
+      }
   return (
     <div className="bg-[#F8F8F8] p-6 w-[400px] fixed bottom-[5.25em] right-[32px] rounded-lg">
         <div className='bg-[#F8F8F8] text-lg text-black text-center overflow-hidden border-b-2 border-b-slate-500 p-4'>Let us Know Your <b className='bg-[#F8F8F8]'>Feedback</b><br/>about us!</div>
@@ -35,7 +47,7 @@ const Feedback = () => {
             </div>
 
             <div className='flex flex-row-reverse bg-[#F8F8F8]'>
-                <button className='w-fit bg-[#0F0F0F] px-4 p-2 text-base rounded-lg '>submit</button>
+                <button className='w-fit bg-[#0F0F0F] px-4 p-2 text-base rounded-lg 'onClick={(e)=>submit(e)}>submit</button>
             </div>
         </form>
         <input
