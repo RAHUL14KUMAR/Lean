@@ -11,7 +11,8 @@ const Feedback = ({setToogle,handleNavItem}) => {
         fileInputRef.current.click();
       };
     
-      const handleFileInputChange = () => {
+      const handleFileInputChange = (e) => {
+        e.preventDefault();
         const file = fileInputRef.current.files[0];
         console.log('Selected file:', file);
       };
@@ -26,12 +27,12 @@ const Feedback = ({setToogle,handleNavItem}) => {
         handleNavItem("");
       }
   return (
-    <div className="bg-[#F8F8F8] p-6 w-[400px] fixed bottom-[5.25em] right-[32px] rounded-lg">
+    <div className="fixed bottom-[5.25em] right-[32px] w-[300px] rounded-lg bg-[#F8F8F8] p-6 sm:w-[350px] md:w-[400px]">
         <div className='bg-[#F8F8F8] text-lg text-black text-center overflow-hidden border-b-2 border-b-slate-500 p-4'>Let us Know Your <b className='bg-[#F8F8F8]'>Feedback</b><br/>about us!</div>
 
         <form className='flex flex-col bg-[#F8F8F8] p-3'>
-            <div className='flex flex-col w-[398px] h-[180px] bg-[#E0E0E0] my-4'>
-                <textarea type="text" className='w-full h-24 font-semibold text-base text-black bg-[#E0E0E0] p-2 focus:outline-none' placeholder='write here...'/>
+            <div className='my-4 flex h-[180px] w-[220px] flex-col bg-[#E0E0E0] sm:w-[280px] md:w-[330px]'>
+                <textarea type="text" className='w-full h-24 font-semibold text-base text-black bg-[#E0E0E0] p-2 focus:outline-none placeholder:text-black' placeholder='write here...'/>
 
                 <div className='flex w-fit overflow-hidden bg-[#C7C7C7] text-base p-2 text-black rounded-sm  my-5 mx-5'>
                     <img src={vector} />
@@ -43,7 +44,7 @@ const Feedback = ({setToogle,handleNavItem}) => {
 
             <div className='bg-[#F8F8F8] p-2'>
                 <label className='overflow-hidden text-black text-base p-1'></label>
-                <input type="checkbox" id="area" className='text-black text-base px-3 py-2 rounded-md' /><span className='text-black bg-[#F8F8F8] text-base m-2'>Send feedback anonymously</span>
+                <input type="checkbox" id="area" className='text-black text-base px-3 py-2 rounded-md' /><span className='text-black bg-[#F8F8F8] text-base text-sm md:text-lg m-2'>Send feedback anonymously</span>
             </div>
 
             <div className='flex flex-row-reverse bg-[#F8F8F8]'>
@@ -55,7 +56,7 @@ const Feedback = ({setToogle,handleNavItem}) => {
         id="fileInput"
         ref={fileInputRef} 
         className="hidden"
-        onChange={handleFileInputChange}
+        onChange={(e)=>handleFileInputChange(e)}
       />
     </div>
   )

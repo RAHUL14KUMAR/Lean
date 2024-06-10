@@ -15,7 +15,7 @@ const Contact = ({setToogle,handleNavItem}) => {
     }
 
   return (
-    <div className="bg-[#F8F8F8] p-6 w-[400px] fixed bottom-[5.25em] right-[32px] rounded-lg">
+    <div className="fixed bottom-[5.25em] right-[32px] w-[330px] rounded-lg bg-[#F8F8F8] p-6 sm:w-[350px] md:w-[400px]">
         <div className='bg-[#F8F8F8] text-lg text-black text-center overflow-hidden border-b-2 border-b-slate-500 p-4'>Get in <b className='bg-[#F8F8F8]'>Contact with us</b> for your<br/> queries!</div>
 
         <form className='flex flex-col bg-[#F8F8F8] p-3'>

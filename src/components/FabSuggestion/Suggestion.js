@@ -25,7 +25,7 @@ const Suggestion = ({setToogle,handleNavItem}) => {
       handleNavItem("");
     }
   return (
-    <div className="bg-[#F8F8F8] p-6 w-[400px] fixed bottom-[5.25em] right-[32px] rounded-lg">
+    <div className="fixed bottom-[5.25em] right-[32px] w-[330px] rounded-lg bg-[#F8F8F8] p-6 sm:w-[350px] md:w-[400px]">
         <div className='bg-[#F8F8F8] text-lg text-black text-center overflow-hidden border-b-2 border-b-slate-500 p-4'>Share your <b className='bg-[#F8F8F8]'>Suggestions</b><br/>with us for a chance to earn rewards!</div>
 
         <form className='flex flex-col bg-[#F8F8F8] p-3'>
@@ -35,7 +35,7 @@ const Suggestion = ({setToogle,handleNavItem}) => {
             </div>
 
             <p className='overflow-hiddeb text-base text-black mt-4'>Describe the suggestions in Details <span className='font-bold text-red-600'> *</span></p>
-            <div className='flex flex-col w-[398px] h-[180px] bg-[#E0E0E0] my-2'>
+            <div className='my-2 flex h-[180px] w-[260px] flex-col bg-[#E0E0E0] sm:w-[280px] md:w-[330px]'>
                 <textarea type="text" className='w-full h-24 font-semibold text-base text-black bg-[#E0E0E0] p-2 focus:outline-none placeholder:text-black' placeholder='write here...'/>
 
                 <div className='flex w-fit overflow-hidden bg-[#C7C7C7] text-base p-2 text-black rounded-sm  my-5 mx-5'>
